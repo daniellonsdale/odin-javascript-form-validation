@@ -8,4 +8,33 @@
 
 body{
     min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+form{
+    border: 1px solid black;
+    border-radius: 2rem;
+    padding: 2%;
+}
+
+.form-container{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+label{
+    display: flex;
+    gap: 4px;
+}
+
+.input-information{
+    text-wrap: nowrap;
+}
+
+button{
+    align-self: baseline;
+    padding: .1rem 1rem;
 }
