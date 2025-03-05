@@ -12,11 +12,14 @@ body{
     justify-content: center;
     align-items: center;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: rgb(111, 131, 119);
 }
 form{
     border: 1px solid black;
     border-radius: 2rem;
     padding: 2%;
+    background-color: rgb(197, 211, 203);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .form-container{
