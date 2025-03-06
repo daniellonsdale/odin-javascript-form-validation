@@ -41,3 +41,17 @@ button{
     align-self: baseline;
     padding: .1rem 1rem;
 }
+
+input:invalid{
+    border-color: red;
+    background-color: rgb(255, 243, 243);
+}
+
+input:valid{
+    border-color: blue;
+    background-color: rgb(239, 239, 255);
+}
+
+input:focus{
+    background-color: white;
+}
