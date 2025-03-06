@@ -84,7 +84,7 @@ function showPostalCodeError(){
     if(postalCode.validity.valueMissing){
         postalCodeError.textContent = "You need to enter a postal code";
     }else if(postalCode.validity.tooShort){
-        postalCodeError.textContent = `postal code should be ${postalCode.minLength} characters; you entered ${postalCode.value.length}`;
+        postalCodeError.textContent = `Postal code should be ${postalCode.minLength} characters; you entered ${postalCode.value.length}`;
     }
 
     postalCodeError.className = "error active";
@@ -103,7 +103,7 @@ function showPasswordError(){
     if(password.validity.valueMissing){
         passwordError.textContent = "You need to enter a password";
     }else if(password.validity.tooShort){
-        passwordError.textContent = `password should be ${password.minLength} characters; you entered ${password.value.length}`;
+        passwordError.textContent = `Password should be ${password.minLength} characters; you entered ${password.value.length}`;
     }
 
     passwordError.className = "error active";
