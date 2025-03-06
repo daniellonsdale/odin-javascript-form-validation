@@ -22,6 +22,9 @@ form.addEventListener('submit', (e) => {
     }else if(!postalCode.validity.valid){
         showPostalCodeError();
         e.preventDefault();
+    }else if(!password.validity.valid){
+        showPasswordError();
+        e.preventDefault();
     }
 });
 
@@ -78,8 +81,27 @@ function showPostalCodeError(){
     if(postalCode.validity.valueMissing){
         postalCodeError.textContent = "You need to enter a postal code";
     }else if(postalCode.validity.tooShort){
-        postalCodeError.textContent = `postal code name should be ${postalCode.minLength} characters; you entered ${postalCode.value.length}`;
+        postalCodeError.textContent = `postal code should be ${postalCode.minLength} characters; you entered ${postalCode.value.length}`;
     }
 
     postalCodeError.className = "error active";
+}
+
+password.addEventListener('change', () => {
+    if(password.validity.valid){
+        passwordError.textContent = "";
+        passwordError.className = "error";
+    }else{
+        showPasswordError();
+    }
+});
+
+function showPasswordError(){
+    if(password.validity.valueMissing){
+        passwordError.textContent = "You need to enter a password";
+    }else if(password.validity.tooShort){
+        passwordError.textContent = `password should be ${password.minLength} characters; you entered ${password.value.length}`;
+    }
+
+    passwordError.className = "error active";
 }
