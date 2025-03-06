@@ -16,6 +16,9 @@ form.addEventListener('submit', (e) => {
     if(!email.validity.valid){
         showEmailError();
         e.preventDefault();
+    }else if(!country.validity.valid){
+        showCountryError();
+        e.preventDefault();
     }
 });
 
@@ -38,4 +41,23 @@ function showEmailError(){
     }
 
     emailError.className = "error active";
+}
+
+country.addEventListener('change', () => {
+    if(country.validity.valid){
+        countryError.textContent = "";
+        countryError.className = "error";
+    }else{
+        showCountryError();
+    }
+});
+
+function showCountryError(){
+    if(country.validity.valueMissing){
+        countryError.textContent = "You need to enter a country";
+    }else if(country.validity.tooShort){
+        countryError.textContent = `Country name should be at least ${country.minLength} characters; you entered ${country.value.length}`;
+    }
+
+    countryError.className = "error active";
 }
