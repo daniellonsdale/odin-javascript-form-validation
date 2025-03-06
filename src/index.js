@@ -25,6 +25,9 @@ form.addEventListener('submit', (e) => {
     }else if(!password.validity.valid){
         showPasswordError();
         e.preventDefault();
+    }else if(!confirmPassword.validity.valid || confirmPassword.value !== password.value){
+        showConfirmPasswordError();
+        e.preventDefault();
     }
 });
 
@@ -104,4 +107,23 @@ function showPasswordError(){
     }
 
     passwordError.className = "error active";
+}
+
+confirmPassword.addEventListener('change', () => {
+    if(confirmPassword.validity.valid && password.value === confirmPassword.value){
+        confirmPasswordError.textContent = "";
+        confirmPasswordError.className = "error";
+    }else{
+        showConfirmPasswordError();
+    }
+});
+
+function showConfirmPasswordError(){
+    if(confirmPassword.validity.valueMissing){
+        confirmPasswordError.textContent = "You need to enter your password again";
+    }else if(confirmPassword.value !== password.value){
+        confirmPasswordError.textContent = "Your passwords do not match";
+    }
+
+    confirmPasswordError.className = "error active";
 }
