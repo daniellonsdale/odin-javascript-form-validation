@@ -19,6 +19,9 @@ form.addEventListener('submit', (e) => {
     }else if(!country.validity.valid){
         showCountryError();
         e.preventDefault();
+    }else if(!postalCode.validity.valid){
+        showPostalCodeError();
+        e.preventDefault();
     }
 });
 
@@ -60,4 +63,23 @@ function showCountryError(){
     }
 
     countryError.className = "error active";
+}
+
+postalCode.addEventListener('change', () => {
+    if(postalCode.validity.valid){
+        postalCodeError.textContent = "";
+        postalCodeError.className = "error";
+    }else{
+        showPostalCodeError();
+    }
+});
+
+function showPostalCodeError(){
+    if(postalCode.validity.valueMissing){
+        postalCodeError.textContent = "You need to enter a postal code";
+    }else if(postalCode.validity.tooShort){
+        postalCodeError.textContent = `postal code name should be ${postalCode.minLength} characters; you entered ${postalCode.value.length}`;
+    }
+
+    postalCodeError.className = "error active";
 }
