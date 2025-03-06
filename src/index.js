@@ -12,6 +12,13 @@ const passwordError = document.querySelector("#password + span.error");
 const confirmPassword = document.getElementById("confirm-password");
 const confirmPasswordError = document.querySelector("#confirm-password + span.error");
 
+form.addEventListener('submit', (e) => {
+    if(!email.validity.valid){
+        showEmailError();
+        e.preventDefault();
+    }
+});
+
 email.addEventListener('change', () => {
     if(email.validity.valid){
         emailError.textContent = "";
@@ -29,6 +36,6 @@ function showEmailError(){
     }else if(email.validity.tooShort){
         emailError.textContent = `Email should be at least ${email.minLength} characters; you entered ${email.value.length}`;
     }
-    
+
     emailError.className = "error active";
 }
