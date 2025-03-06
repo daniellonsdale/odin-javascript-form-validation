@@ -11,3 +11,24 @@ const password = document.getElementById("password");
 const passwordError = document.querySelector("#password + span.error");
 const confirmPassword = document.getElementById("confirm-password");
 const confirmPasswordError = document.querySelector("#confirm-password + span.error");
+
+email.addEventListener('change', () => {
+    if(email.validity.valid){
+        emailError.textContent = "";
+        emailError.className = "error";
+    }else{
+        showEmailError();
+    }
+});
+
+function showEmailError(){
+    if(email.validity.valueMissing){
+        emailError.textContent = "You need to enter an email address";
+    }else if(email.validity.typeMismatch){
+        emailError.textContent = "Please enter a valid email address";
+    }else if(email.validity.tooShort){
+        emailError.textContent = `Email should be at least ${email.minLength} characters; you entered ${email.value.length}`;
+    }
+    
+    emailError.className = "error active";
+}
